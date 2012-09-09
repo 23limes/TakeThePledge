@@ -8,20 +8,307 @@
 	<script type="text/javascript" charset="utf-8" src="jquery.mobile-1.1.1.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>
 	<script type="text/javascript" charset="utf-8" src="knockout-2.1.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="usergrid.appSDK.js"></script>
+	<script type="text/javascript">
+		
+		Usergrid.AppClient.init('23limes', 'takethepledge');
+				
+	</script>
+	<style type="text/css">
+		.nav-glyphish-example .ui-btn .ui-btn-inner {
+		    padding-top: 40px !important; 
+		}
+		
+		.nav-glyphish-example .ui-btn .ui-icon { 
+		    width: 45px!important; 
+		    height: 35px!important; 
+		    margin-left: -24px !important; 
+		    box-shadow: none!important; 
+		    -moz-box-shadow: none!important; 
+		    -webkit-box-shadow: none!important;
+		    -webkit-border-radius: none !important;
+		    border-radius: none !important; 
+		}
+		
+		#favorite .ui-icon { 
+		    background-image: url(http://glyphish.com/images/demo.png);
+		    background-position: -152px -350px;
+		    background-repeat: no-repeat;
+		}
+		
+		#recent .ui-icon { 
+		    background-image: url(http://glyphish.com/images/demo.png);
+		    background-position: -344px -110px;
+		    background-repeat: no-repeat; 
+		}
+		
+		#contacts .ui-icon { 
+		    background-image: url(http://glyphish.com/images/demo.png);
+		    background-position: -297px -60px;
+		    background-repeat: no-repeat; 
+		}
+		
+		#keypad .ui-icon { 
+		    background-image: url(http://glyphish.com/images/demo.png);
+		    background-position: -345px -62px;
+		    background-repeat: no-repeat; 
+		}
+		.steeringWheel {
+			background-image: url(img/header.png);
+			background-repeat: no-repeat;
+			background-size: 340px 40px;
+			text-align: center;
+			width: auto;
+			text-indent: -9999999px;
+/* 			margin: .6em 30% .8em; */
+			padding: 0;
+		}
+        </style>
 </head> 
 <body> 
+<div data-role="page" data-theme="a" id="page-map">
+          <div data-role="header" data-theme="a">
+            <h1>Take The Pledge</h1>
+          </div>
+          <div data-role="content">
+			<label>Destination</label><br/>
+			<select id="destination">
+				<option value="cvs">1411 Lincoln Boulevard</option>
+				<option value="coffee">829 Wilshire Boulevard</option>
+				<option value="art">1310 11th Street</option>
+				<option value="store">1248 3rd Street Promenade</option>
+			</select>
+			<img id="driveBtn" src="images/api_b_btn_opt_01.png" alt="drive"/>
+			
+			<a href="#" id="btn-drive" data-role="button">Drive</a>
+			<a href="#" id="btn-arrive" data-role="button">Arrive</a>
+			
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c"> 
+				<ul class="ui-grid-c"> 
+					<li><a href="#page-map" id="favorite" class="ui-state-persist" data-icon="custom"></a></li> 
+					<li><a href="#page-leaderboard" id="recent" data-icon="custom"></a></li> 
+					<li><a href="#page-friends" id="contacts" data-icon="custom"></a></li> 
+					<li><a href="#page-messages-list" id="keypad" data-icon="custom"></a></li> 
+				</ul> 
+            </div>
+			  </div><!--Footer -->
 
-<div data-role="page">
+          </div><!-- content -->
+          </div>
 
-	<div data-role="header">
-		<h1>My Title</h1>
-	</div><!-- /header -->
+        <div data-role="page" data-theme="a" id="page-leaderboard">
+          <div data-role="header" data-theme="a">
+            <h1>Leaderboard</h1>
+          </div>
+          <div data-role="content">
+            <img src="images/mockup1_02.gif" alt="mockup1_02" width="90%" height="" />
+            <img src="images/mockup1_04.gif" alt="mockup1_02" width="90%" height="" />
+            <img src="images/mockup1_05.gif" alt="mockup1_02" width="90%" height="" />
+            <img src="images/mockup1_06.gif" alt="mockup1_02" width="90%" height="" />
+            <img src="images/mockup1_07.png" alt="mockup1_02" width="90%" height="" />
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c"> 
+				<ul class="ui-grid-c"> 
+					<li><a href="#page-map" id="favorite" data-icon="custom"></a></li> 
+					<li><a href="#page-leaderboard" id="recent" class="ui-state-persist" data-icon="custom"></a></li> 
+					<li><a href="#page-friends" id="contacts" data-icon="custom"></a></li> 
+					<li><a href="#page-messages-list" id="keypad" data-icon="custom"></a></li> 
+				</ul> 
+				</div>
+			  </div><!--Footer -->
+          </div><!-- content -->
+          </div>
+          
+        <div data-role="page" data-theme="a" id="page-friends">
+          <div data-role="header" data-theme="a">
+            <h1>Awards</h1>
+          </div>
+          <div data-role="content">
+            <img src="images/badge1.png" alt="mockup1_02" />
+            <img src="images/badge2.png" alt="mockup1_02" />
+            <img src="images/badge3.png" alt="mockup1_02" />
+            <img src="images/badge4.png" alt="mockup1_02" />
+            <img src="images/badge5.png" alt="mockup1_02" />
+			<img src="images/badge6.png" alt="mockup1_02" />
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar" class="nav-glyphish-example" data-grid="c"> 
+				<ul class="ui-grid-c"> 
+					<li><a href="#page-map" id="favorite" data-icon="custom"></a></li> 
+					<li><a href="#page-leaderboard" id="recent" data-icon="custom"></a></li> 
+					<li><a href="#page-friends" id="contacts" class=" ui-state-persist" data-icon="custom"></a></li> 
+					<li><a href="#page-messages-list" id="keypad" data-icon="custom"></a></li> 
+				</ul> 
+				</div>
+			  </div><!--Footer -->
 
-	<div data-role="content">	
-		<p>Hello world</p>		
-	</div><!-- /content -->
+          </div><!-- content -->
+        </div>
 
-</div><!-- /page -->
+
+        <div data-role="page" data-theme="a" id="page-login">
+          <div data-role="header" data-theme="a">
+            <h1>Take The Pledge</h1>
+          </div>
+          <div data-role="content">
+            <h3>Take The Pledge: I will not text while driving</h3>
+            <p>
+              <h4>Log in using your Messagee account.</h4>
+              Don't have an account? use our test account (username: testuser / password: testuser), or create a new one!
+              Encourage your friends to join! The Take The Pledge App will award your progress and help you report your friends for breaking their pledges.
+            </p>
+            <span id="login-section-error"></span>
+            <form name="form-login" id="form-login">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" class="span4" />
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" class="span4" />
+            </form>
+            <div style="width: 50%; float: left">
+              <a href="#login" id="btn-login" data-role="button">Login</a>
+            </div>
+            <div style="width: 50%; float: right">
+              <a href="#page-new-account" id="btn-show-create-new-account" data-role="button" data-rel="dialog" data-transition="pop">New Account</a>
+            </div>
+            <img src="images/mockup1_02.gif" alt="mockup1_02" width="" height="" />
+            <img src="images/mockup1_04.gif" alt="mockup1_02" width="" height="" />
+            <img src="images/mockup1_05.gif" alt="mockup1_02" width="" height="" />
+            <img src="images/mockup1_06.gif" alt="mockup1_02" width="" height="" />
+            <img src="images/mockup1_07.png" alt="mockup1_02" width="" height="" />
+          </div>
+          <div data-role="footer" data-position="fixed">
+          	<div data-role="navbar">
+			<ul>
+				<li class="ui-block-a"><a href="#page-map" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn ui-btn-inline ui-btn-icon-top ui-btn-up-a"><span class="ui-btn-inner"><span class="ui-btn-text">Map</span><span class="ui-icon ui-icon-grid ui-icon-shadow">&nbsp;</span></span></a></li>
+				<li class="ui-block-b"><a href="#page-leaderboard" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn ui-btn-inline ui-btn-icon-top ui-btn-up-a"><span class="ui-btn-inner"><span class="ui-btn-text">Global Leaderboard</span><span class="ui-icon ui-icon-star ui-icon-shadow">&nbsp;</span></span></a></li>
+				<li class="ui-block-c"><a href="#page-friends" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn ui-btn-inline ui-btn-icon-top ui-btn-up-a"><span class="ui-btn-inner"><span class="ui-btn-text">Friends</span><span class="ui-icon ui-icon-gear ui-icon-shadow">&nbsp;</span></span></a></li>
+				<li class="ui-block-d"><a href="#page-messages-list" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-iconpos="top" data-theme="a" data-inline="true" class="ui-btn ui-btn-up-a ui-btn-inline ui-state-persist ui-btn-icon-top"><span class="ui-btn-inner"><span class="ui-btn-text">Recent Txts</span><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></span></a></li>
+			</ul>
+			</div><!-- /navbar -->
+          </div>
+        </div>
+
+        <div data-role="page" data-theme="a" id="page-new-account">
+          <div data-role="header" data-theme="a">
+            <h1>Messagee</h1>
+          </div>
+          <div data-role="content">
+            <p>Account Info</p>
+            <form name="form-create-new-account" id="form-create-new-account">
+              <label for="new-name">Name</label>
+              <input type="text" name="new-name" id="new-name" class="span4" />
+              <label for="new-email">Email</label>
+              <input type="text" name="new-email" id="new-email" class="span4" />
+              <label for="new-username">Username</label>
+              <input type="text" name="new-username" id="new-username" class="span4" />
+              <label for="new-password">Password</label>
+              <input type="password" name="new-password" id="new-password" class="span4" />
+            </form>
+            <div style="width: 50%; float: left">
+              <button id="btn-create-new-account">Go!</button>
+            </div>
+            <div style="width: 50%; float: right">
+              <a href="#login" id="btn-close-update-account-page" data-role="button">Close</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div data-role="page" data-theme="a" id="page-update-account">
+          <div data-role="header" data-theme="a">
+            <h1>Messagee</h1>
+          </div>
+          <div data-role="content">
+            <div id="user-message-update-account"></div>
+            <p>Account Info</p>
+            <form name="form-update-new-account" id="form-update-new-account">
+              <label for="update-name">Name</label>
+              <input type="text" name="update-name" id="update-name" class="span4" />
+              <label for="update-email">Email</label>
+              <input type="text" name="update-email" id="update-email" class="span4" />
+              <label for="update-username">Username</label>
+              <input type="text" name="update-username" id="update-username" class="span4" />
+              <label for="update-oldpassword">Current Password</label>
+              <input type="password" name="update-oldpassword" id="update-oldpassword" class="span4" />
+              <label for="update-newpassword">New Password</label>
+              <input type="password" name="update-newpassword" id="update-newpassword" class="span4" />
+            </form>
+            <div style="width: 50%; float: left">
+              <button id="btn-update-account">Update</button>
+            </div>
+            <div style="width: 50%; float: right">
+              <a href="#page-messages-list" id="btn-close" data-role="button">Close</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div data-role="page" data-theme="a" id="page-messages-list">
+          <div data-role="header" data-theme="a">
+            <h1>Comments</h1>
+            <a href="#login" id="btn-logout" data-role="button">Logout</a>
+            <a href="#page-update-account" id="btn-show-page-update-account" data-role="button" data-icon="gear" data-rel="dialog" data-transition="fade">Settings</a>
+          </div>
+          <a href="#page-new-message" id="btn-show-create-message" data-role="button" data-rel="dialog" data-transition="fade">Compose Message</a>
+          <div style="width: 50%; float: left">
+              <a href="#" data-role="button" data-icon="home" id="btn-show-my-feed">My Stream</a>
+          </div>
+          <div style="width: 50%; float: right">
+            <a href="#" data-role="button" data-icon="grid" id="btn-show-full-feed" class="ui-btn-up-c">All Posts</a>
+          </div>
+          <div id="messages-list"  data-role="content">
+              No messages yet!
+          </div>
+          <div id="feed-btn-container"  data-role="content">
+            <div style="width: 50%; float: left" id="previous-btn-container">
+              <button id="btn-previous" data-role="button" data-icon="arrow-l">Previous</button>
+            </div>
+            <div style="width: 50%; float: right" id="next-btn-container">
+              <button id="btn-next" data-role="button" data-icon="arrow-r" data-iconpos="right">Next</button>
+            </div>
+          </div>
+          <div data-role="footer" data-position="fixed">
+          	<div data-role="navbar" class="nav-glyphish-example" data-grid="c"> 
+            <ul class="ui-grid-c"> 
+                <li><a href="#page-map" id="favorite" data-icon="custom"></a></li> 
+                <li><a href="#page-leaderboard" id="recent" data-icon="custom"></a></li> 
+                <li><a href="#page-friends" id="contacts" data-icon="custom"></a></li> 
+                <li><a href="#page-messages-list" id="keypad" class=" ui-state-persist" data-icon="custom"></a></li> 
+            </ul> 
+            </div>
+          </div>
+        </div>
+
+
+        <div data-role="page" data-theme="a" id="page-new-message">
+          <div data-role="header" data-theme="a">
+            <h1>Create a new message</h1>
+          </div>
+          <div data-role="content">
+            <form name="login" id="login-form">
+              <label for="content">Message (150 Chars max)</label>
+              <textarea id="content" class="input-xlarge" rows="3" style="margin: 0px; width: 100%; height: 125px; "></textarea>
+            </form>
+            <div style="width: 50%; float: left">
+              <button id="post-message">Post</button>
+            </div>
+            <div style="width: 50%; float: right">
+              <a href="#page-messages-list" id="btn-close-new-message" data-role="button">Cancel</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div data-role="page" data-theme="a" id="page-now-following">
+          <div data-role="header" data-theme="a">
+            <h1>Congratulations!</h1>
+          </div>
+          <div data-role="content">
+            <div id="now-following-text" style="height: 75px;"></div>
+            <a href="#" data-rel="back" data-role="button" data-icon="delete">OK</a>
+          </div>
+        </div>
 
 </body>
 </html>
